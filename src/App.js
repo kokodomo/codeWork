@@ -3,10 +3,9 @@ import PersonalInfoForm from './PersonalInfoForm';
 
 function App() {
   return (
-    <div>
-      <h1>Personal Information Management</h1>
+    <>
       <PersonalInfoForm />
-    </div>
+    </>
   );
 }
 
