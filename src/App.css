@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.add-button {
+  background-color: #05990a; /* สีเขียว */
+  color: white; /* สีข้อความ */
+  border: none;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}

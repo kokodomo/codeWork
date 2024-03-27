@@ -9,6 +9,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import './App.css';
 
 function PersonalInfoForm() {
   const [formData, setFormData] = useState({
@@ -132,8 +133,8 @@ function PersonalInfoForm() {
 
   return (
     <div style={{ margin: "0 auto", maxWidth: "1300px" }}>
-      <h1 className="text-center">Personal Information Management</h1>
-      <Navbar className="bg-body-tertiary justify-content-between">
+      <div style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '30px', padding: '10px',}}><h1 className="text-center">Personal Information Management</h1>
+      </div><Navbar className="bg-body-tertiary justify-content-between">
         <Form>
           <Row>
             <Col>
@@ -200,8 +201,8 @@ function PersonalInfoForm() {
               </Col>
 
               <Col>
-                <button type="submit" onClick={handleSubmit}>
-                  Add Personal Info
+                <button type="info" onClick={handleSubmit} className="add-button">
+                  ADD
                 </button>
               </Col>
             </Row>
@@ -210,28 +211,29 @@ function PersonalInfoForm() {
       </Navbar>
       <Table striped bordered hover size="sm">
         <thead>
-          <tr>
+          <tr className="text-center">
             <th>#</th>
             <th>Full Name</th>
             <th>Nickname</th>
             <th>Birthdate</th>
             <th>Age</th>
             <th>Gender</th>
-            <th>Actions</th>
+            <th>Delete</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
           {personalInfoList.map((info, index) => (
-            <tr key={info._id}>
+            <tr className="text-center" key={info._id}>
               <td>{index + 1}</td>
               <td>{info.fullName}</td>
               <td>{info.nickname}</td>
               <td>{new Date(info.birthdate).toLocaleDateString()}</td>
               <td>{info.age}</td>
               <td>{info.gender}</td>
-              <td>
-                <Button
-                  variant="danger"
+              <td >
+                <Button 
+                  variant="outline-danger"
                   onClick={() => handleDelete(info._id, info.nickname)}
                 >
                   Delete
@@ -239,7 +241,7 @@ function PersonalInfoForm() {
               </td>
               <td>
                 <Button
-                  variant="primary"
+                  variant="outline-success"
                   onClick={() => handleUpdate(info._id)}
                 >
                   Update
@@ -255,8 +257,8 @@ function PersonalInfoForm() {
           <Form onSubmit={handleUpdateSubmit}>
             {
               <div style={{ margin: "0 auto", maxWidth: "1000px" }}>
-                <h1 className="text-center">Update</h1>
-                <Navbar
+                <div style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '30px', padding: '10px',}}><h1 className="text-center">Update</h1>
+                </div><Navbar
                   className="bg-body-tertiary justify-content-between"
                   style={{ margin: "0 auto", maxWidth: "300px" }}
                 >
@@ -327,7 +329,7 @@ function PersonalInfoForm() {
                       </InputGroup>
                       {/* <Button type="submit">Save</Button> */}
                       <Button
-                        variant="primary"
+                        variant="outline-success"
                         onClick={() => handleUpdateSubmit(onlyuser._id)}
                       >
                         Update
